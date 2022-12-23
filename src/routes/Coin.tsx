@@ -1,12 +1,8 @@
 import React from "react";
-import { useParams, useSearchParams } from "react-router-dom";
-
-interface RouteParams {
-    coinId: string;
-}
+import { useParams } from "react-router-dom";
 
 function Coin() {
-    const { coinId } = useParams() as unknown as RouteParams;
+    const { coinId } = useParams<{ coinId: string | undefined }>();
 
     return <h1>Coin : {coinId}</h1>;
 }
