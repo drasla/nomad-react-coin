@@ -37,7 +37,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    line-height: 1;
+    line-height: 1.2;
+    font-weight: 300;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: ${props => props.theme.bgColor};
+    color: ${props => props.theme.textColor}
   }
 
   menu, ol, ul {
@@ -60,12 +64,6 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Source Sans Pro', sans-serif;
-    background-color: ${props => props.theme.bgColor};
-    color: ${props => props.theme.textColor}
   }
 
   a {
