@@ -14,6 +14,7 @@ const Container = styled.div`
 const Header = styled.header`
     height: 15vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 `;
@@ -67,7 +68,7 @@ interface ICoin {
     type: string;
 }
 
-function Coins() {
+function Coins(props: { toggleDark: VoidFunction }) {
     const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
 
     return (
@@ -77,6 +78,7 @@ function Coins() {
             </Helmet>
             <Header>
                 <Title>코인</Title>
+                <button onClick={props.toggleDark}>Toggle Dark Mode</button>
             </Header>
             {isLoading ? (
                 <Loader>Loading...</Loader>
