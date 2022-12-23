@@ -1,4 +1,5 @@
 const BASE_URL = "https://api.coinpaprika.com";
+const NICO_BASE_URL = "https://ohlcv-api.nomadcoders.workers.dev";
 
 export function fetchCoins() {
     return fetch(`${BASE_URL}/v1/coins`).then(response => response.json());
@@ -13,9 +14,7 @@ export function fetchCoinTickers(coinId: string) {
 }
 
 export function fetchCoinHistory(coinId: string) {
-    const endDate = Math.floor(Date.now() / 1000);
-    const startDate = endDate - 60 * 60 * 24;
     return fetch(
-        `${BASE_URL}/coins/${coinId}/ohlcv/historical?start=${startDate}&end=${endDate}`,
+        `${NICO_BASE_URL}?coinId=${coinId}`,
     ).then(response => response.json());
 }
