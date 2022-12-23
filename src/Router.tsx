@@ -1,13 +1,15 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
-import Coins from "routes/Coins";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Coin from "./routes/Coin";
+import Coins from "./routes/Coins";
 
 function Router() {
     return (
         <BrowserRouter>
-            <Route path={"/:coinId"} element={<Coin />} />
-            <Route path={"/"} element={<Coins />} />
+            <Routes>
+                <Route path={"/:coinId"} element={<Coin />} />
+                <Route path={"/"} element={<Coins />} />
+            </Routes>
         </BrowserRouter>
     );
 }
